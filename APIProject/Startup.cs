@@ -1,3 +1,4 @@
+using CatalogService.Entities;
 using CatalogService.Repositories;
 using CatalogService.Settings;
 using Microsoft.AspNetCore.Builder;
@@ -40,7 +41,11 @@ namespace CatalogService
                 return mongoClient.GetDatabase(serviceSettings.ServiceName);
             });
 
-            services.AddSingleton<IItemsRepository,ItemsRepository>();
+            services.AddSingleton < IRepository<Item>>(sp => 
+            {
+                var dataBase = sp.GetService<IMongoDatabase>();
+                return new MongoRepository<Item>(dataBase, "items");
+            });
 
             services.AddControllers(options =>
             {
