@@ -1,7 +1,6 @@
 ﻿using CatalogService.DTOs;
 using CatalogService.Entities;
-using CatalogService.Repositories;
-using Microsoft.AspNetCore.Http;
+using Common;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;

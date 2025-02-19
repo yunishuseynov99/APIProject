@@ -1,4 +1,4 @@
-﻿namespace CatalogService.Settings
+﻿namespace Common.Settings
 {
     public class ServiceSettings
     {

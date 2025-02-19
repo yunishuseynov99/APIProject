@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34511.84
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatalogService", "APIProject\CatalogService.csproj", "{DCCE6C0A-7C07-4986-98CF-1F28DFD8C6E6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CatalogService", "APIProject\CatalogService.csproj", "{DCCE6C0A-7C07-4986-98CF-1F28DFD8C6E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{526B8D7A-A1BA-4D93-A099-EBC1A42C6842}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{DCCE6C0A-7C07-4986-98CF-1F28DFD8C6E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DCCE6C0A-7C07-4986-98CF-1F28DFD8C6E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DCCE6C0A-7C07-4986-98CF-1F28DFD8C6E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{526B8D7A-A1BA-4D93-A099-EBC1A42C6842}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{526B8D7A-A1BA-4D93-A099-EBC1A42C6842}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{526B8D7A-A1BA-4D93-A099-EBC1A42C6842}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{526B8D7A-A1BA-4D93-A099-EBC1A42C6842}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

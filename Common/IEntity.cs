@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace CatalogService.Entities
+﻿namespace Common
 {
     public interface IEntity
     {
