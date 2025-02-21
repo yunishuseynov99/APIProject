@@ -1,6 +1,8 @@
 ﻿using CatalogService.DTOs;
 using CatalogService.Entities;
 using Common;
+using Contracts;
+using MassTransit;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -15,33 +17,18 @@ namespace CatalogService.Controllers
     {
 
         private readonly IRepository<Item> _itemsRepository;
-        private static int requestCounter = 0;
+        private IPublishEndpoint _publishEndpoint;
 
-        public ItemsController(IRepository<Item> itemsRepository)
+        public ItemsController(IRepository<Item> itemsRepository, IPublishEndpoint publishEndpoint)
         {
             _itemsRepository = itemsRepository;
+            _publishEndpoint = publishEndpoint;
         }
 
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ItemDto>>> GetAsync()
         {
-            requestCounter++;
-            Console.WriteLine($"Request {requestCounter}: Starting...");
-
-            if (requestCounter <= 2)
-            {
-                Console.WriteLine($"Request {requestCounter}: Delaying...");
-                await Task.Delay(TimeSpan.FromSeconds(10));
-            }
-
-            if (requestCounter <= 4)
-            {
-                Console.WriteLine($"Request {requestCounter}: 500(Internal Server Error).");
-                return StatusCode(500);
-            }
-
             var items = (await _itemsRepository.GetAllAsync()).Select(i => i.AsDto());
-            Console.WriteLine($"Request {requestCounter}: 200(Ok).");
             return Ok(items);
         }
 
@@ -71,6 +58,8 @@ namespace CatalogService.Controllers
 
             await _itemsRepository.CreateAsync(item);
 
+            await _publishEndpoint.Publish(new CatalogItemCreated(item.Id, item.Name, item.Description));
+
             return CreatedAtAction(nameof(GetByIdAsync), new { item.Id }, item);
         }
 
@@ -90,6 +79,7 @@ namespace CatalogService.Controllers
 
             await _itemsRepository.UpdateAsync(existingItem);
 
+            await _publishEndpoint.Publish(new CatalogItemUpdated(existingItem.Id, existingItem.Name, existingItem.Description));
 
             return NoContent();
         }
@@ -105,6 +95,8 @@ namespace CatalogService.Controllers
             }
 
             await _itemsRepository.RemoveAsync(item.Id);
+
+            await _publishEndpoint.Publish(new CatalogItemDeleted(id));
 
             return NoContent();
         }

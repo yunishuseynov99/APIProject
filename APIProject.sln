@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CatalogService", "APIProjec
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "Common\Common.csproj", "{526B8D7A-A1BA-4D93-A099-EBC1A42C6842}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{5A9D33A8-F557-4354-9507-EE2C320B3510}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{5A9D33A8-F557-4354-9507-EE2C320B3510}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryService", "InventoryService\InventoryService.csproj", "{7A6A3B07-9E10-473F-BA46-53F427B19CB5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InventoryService", "InventoryService\InventoryService.csproj", "{7A6A3B07-9E10-473F-BA46-53F427B19CB5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contracts", "Contracts\Contracts.csproj", "{2A27BEDC-BFC6-4F93-A545-B129E67ED021}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{7A6A3B07-9E10-473F-BA46-53F427B19CB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7A6A3B07-9E10-473F-BA46-53F427B19CB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7A6A3B07-9E10-473F-BA46-53F427B19CB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A27BEDC-BFC6-4F93-A545-B129E67ED021}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A27BEDC-BFC6-4F93-A545-B129E67ED021}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A27BEDC-BFC6-4F93-A545-B129E67ED021}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A27BEDC-BFC6-4F93-A545-B129E67ED021}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
